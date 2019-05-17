@@ -20,17 +20,22 @@ Feature:
     Given  POST operation to Create fraction "/profile/{meterId}/fractions"
     And   Provide meterId "100" month "MARCH" value "1.0"
 
-
   Scenario:
-    Given Get operation to list all fraction in a profile "/profiles/{profileName}/fractions"
-    And  Provide profile name "Profile100"
-
+    Given Get operation to list all fraction in a profile "/profiles/{meterId}/fractions"
+    And  Provide meterId Id "100"
 
   Scenario:
     Given Get operation to get a single   fraction from fraction list "/profiles/fractions/{fractionId}"
-    And I will Provide  fraction id "1"
-
+    And I will Provide  fraction id 1
 
   Scenario:
-    Given  I will perform Delete operation on "/profiles"
-    And    I will pass profile id "100"
+    Given  Post operation to create meterreadings "/meterreadings/list"
+    And  Provide meterId 100 and timestamp "2019-02-06" month "MARCH" and volume 2000
+
+  Scenario:
+    Given  GET operation to list all "/meterreadings"
+    Then   I should all meter reading data
+
+  Scenario:
+    Given  Get operation to get meterReadings By Id "/metrreadings"
+    And   Provide meterreading Id to get required meterReading 100

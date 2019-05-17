@@ -57,19 +57,67 @@ public class FeatureSteps {
     public void GetProfileFraction(String arg0) {
     }
 
-    @And("Provide profile name {string}")
-    public void GetProfileFractionInput(String profileName) {
-        BDDStyleCode.GetAllProfileFractions(profileName);
+    @And("Provide meterId Id {string}")
+    public void GetProfileFractionInput(String meterId)
+    {
+        BDDStyleCode.GetAllProfileFractions(meterId);
     }
 
     @Given("Get operation to get a single   fraction from fraction list {string}")
     public void GetFractionById(String arg0) {
     }
 
-    @And("I will Provide  fraction id {string}")
-    public void GetFractionByIdInput(String fractionId) {
+    @And("I will Provide  fraction id {int}")
+    public void GetFractionByIdInput(Integer fractionId) {
+        System.out.println(fractionId);
         BDDStyleCode.FractionGetbyId(fractionId);
     }
+
+
+    @Given("Post operation to create meterreadings {string}")
+    public void postOperationToCreateMeterreadings(String arg0) {
+    }
+
+    @And("Provide meterId {int} and timestamp {string} month {string} and volume {int}")
+    public void iWillProvideMeterIdAndTimestampMonthAndVolume(Integer meterId, String timestamp, String month, Integer volume) {
+        BDDStyleCode.CreateMeterReadings(meterId,timestamp,month,volume);
+    }
+
+    @Given("GET operation to list all {string}")
+    public void iWillPerformGETOperationToListAll(String arg0) {
+        BDDStyleCode.MeterReadingsGetALL();
+    }
+
+    @Then("I should all meter reading data")
+    public void iShouldAllMeterReadingData() {
+    }
+
+    @Given("Get operation to get meterReadings By Id {string}")
+    public void getOperationToGetMeterReadingsById(String arg0) {
+
+    }
+
+    @And("Provide meterreading Id to get required meterReading {int}")
+    public void iWillProvideMeterreadingIdToGetRequiredMeterReading(String meterReadingId) {
+        BDDStyleCode.GetMeterReadingById(meterReadingId);
+    }
+
+    @Given("Delete operation on meterreadings to delete meterReading {string}")
+    public void deleteOperationOnMeterreadingsToDeleteMeterReading(String arg0) {
+
+    }
+
+    @And("I will provide meter {string} and month {string}")
+    public void iWillProvideMeterAndMonth(String meterId, String monthName) {
+        BDDStyleCode.DeleteMeterReadingById(meterId, monthName);
+    }
+
+
+
+
+
+
+
 
     //Delete
     @Given("I will perform Delete operation on {string}")
@@ -80,6 +128,5 @@ public class FeatureSteps {
     public void DeleteProfileByIdInput(String ProfileId) {
         BDDStyleCode.DeleteProfileById(ProfileId);
     }
-
 
 }
