@@ -94,7 +94,6 @@ public class BDDStyleCode {
         obj.put("month", month);
         obj.put("volume", volume);
         Object arrayData = objArray.put(obj);
-        System.out.println(arrayData);
         given()
                 .contentType(ContentType.JSON)
                 .with()
@@ -106,18 +105,14 @@ public class BDDStyleCode {
 
 
     public static void MeterReadingsGetALL() {
-        System.out.println("All meter reading");
         given().contentType(ContentType.JSON)
-                .when()
-                .when().get(String.format("http://localhost:8080/meterreadings")).
-                then()
+                .when().get(String.format("http://localhost:8080/meterreadings"))
+                .then()
                 .statusCode(200);
     }
 
 
-    public static void GetMeterReadingById(String meterReadingId) {
-        System.out.println(" meter reading by id ");
-        System.out.println(meterReadingId);
+    public static void GetMeterReadingById(Integer meterReadingId) {
         given().contentType(ContentType.JSON)
                 .with()
                 .pathParam("meterReadingId", meterReadingId)
@@ -127,14 +122,16 @@ public class BDDStyleCode {
     }
 
 
-    public static void DeleteMeterReadingById(String MeterId, String MonthName) {
+    public static void DeleteMeterReadingById(Integer MeterId, String MonthName) {
         System.out.println(MeterId);
         System.out.println(MonthName);
         given()
                 .contentType(ContentType.JSON)
                 .with()
+                .pathParam("MeterId",MeterId)
+                .pathParam("MonthName","MARCH")
                 .when()
-                .delete("localhost:8080/meterreadings/meter/1/month/JANUARY1")
+                .delete("http://localhost:8080/meterreadings/meter/{MeterId}/month/{MonthName}")
                 .then()
                 .statusCode(204);
 

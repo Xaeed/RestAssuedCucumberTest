@@ -37,5 +37,15 @@ Feature:
     Then   I should all meter reading data
 
   Scenario:
-    Given  Get operation to get meterReadings By Id "/metrreadings"
-    And   Provide meterreading Id to get required meterReading 100
+    Given  Get operation to get meterReadings By Id "/meterreadings"
+    And   Provide meterreading Id to get required meterReading 13
+
+
+  Scenario:
+    Given  Delete operation on meterreadings to delete meterReading "meterreadings/meter/{id}/month/{Month}"
+    And I will provide meter 100 and month "MARCH"
+
+
+  Scenario:
+    Given  I will perform Delete operation on "/profiles"
+    And    I will pass profile id "100"

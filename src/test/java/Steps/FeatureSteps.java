@@ -69,22 +69,21 @@ public class FeatureSteps {
 
     @And("I will Provide  fraction id {int}")
     public void GetFractionByIdInput(Integer fractionId) {
-        System.out.println(fractionId);
         BDDStyleCode.FractionGetbyId(fractionId);
     }
 
 
     @Given("Post operation to create meterreadings {string}")
-    public void postOperationToCreateMeterreadings(String arg0) {
+    public void CreateMeterReadings(String arg0) {
     }
 
     @And("Provide meterId {int} and timestamp {string} month {string} and volume {int}")
-    public void iWillProvideMeterIdAndTimestampMonthAndVolume(Integer meterId, String timestamp, String month, Integer volume) {
+    public void CreateMeterReadingsInput(Integer meterId, String timestamp, String month, Integer volume) {
         BDDStyleCode.CreateMeterReadings(meterId,timestamp,month,volume);
     }
 
     @Given("GET operation to list all {string}")
-    public void iWillPerformGETOperationToListAll(String arg0) {
+    public void GetAllMeterReadings(String arg0) {
         BDDStyleCode.MeterReadingsGetALL();
     }
 
@@ -93,12 +92,12 @@ public class FeatureSteps {
     }
 
     @Given("Get operation to get meterReadings By Id {string}")
-    public void getOperationToGetMeterReadingsById(String arg0) {
+    public void GetMeterReadingsById(String arg0) {
 
     }
 
     @And("Provide meterreading Id to get required meterReading {int}")
-    public void iWillProvideMeterreadingIdToGetRequiredMeterReading(String meterReadingId) {
+    public void GetMeterReadingsByIdInput(Integer meterReadingId) {
         BDDStyleCode.GetMeterReadingById(meterReadingId);
     }
 
@@ -107,16 +106,10 @@ public class FeatureSteps {
 
     }
 
-    @And("I will provide meter {string} and month {string}")
-    public void iWillProvideMeterAndMonth(String meterId, String monthName) {
+    @And("I will provide meter {int} and month {string}")
+    public void DeleteMeterReadingById(Integer meterId, String monthName) {
         BDDStyleCode.DeleteMeterReadingById(meterId, monthName);
     }
-
-
-
-
-
-
 
 
     //Delete
